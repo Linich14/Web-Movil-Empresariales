@@ -2,21 +2,24 @@
 
 <PageTitle>AppWeb</PageTitle>
 
-<div class="page">
-    <div class="sidebar">
-        <NavMenu />
-    </div>
+<div class="">
 
     <main>
-        <div class="top-row px-4 auth  bg-[#16B213]">
-            <div class="bg-[#f8fafc]  rounded-lg">
+        <nav class="py-2 bg-[#95D904] flex justify-between font-bold">
+            <div class="bg-[#f8fafc] p-2 mx-8 rounded-bl-[35px] rounded-tr-[35px]">
                 <img src="./images/logo2.png" alt="logo">
             </div>
-            
-            <LoginDisplay />
-            <a href="https://docs.microsoft.com/aspnet/" target="_blank">About</a>
-        </div>
-
+            <div class="mx-8 gap content-center">
+                <ul class="space-x-4 text-white flex hover:text-black">
+                    <li><a href="/">Inicio</a></li>
+                    <li><a href="Camioneroslist">Camioneros</a></li>
+                    <li><a href="Rutaslist">Rutas</a></li>
+                    <li><a href="Supervisoreslist">Supervisores</a></li>
+                    <li><a href="Reporteslist">Reportes</a></li>
+                </ul>
+            </div>
+        </nav>
+        
         <article class="content px-4">
             @Body
         </article>
