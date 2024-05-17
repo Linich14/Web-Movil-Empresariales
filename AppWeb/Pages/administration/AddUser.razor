@@ -1,0 +1,119 @@
+﻿@page "/admin/adduser"
+
+<PageTitle>Agregar usuario</PageTitle>
+
+<h1 class="mt-3 mb-6 text-center text-lg font-bold">Añadir Usuario</h1>
+
+
+
+   
+
+<EditForm Model="@formModel" OnValidSubmit="HandleValidSubmit" class="space-y-4">
+    <DataAnnotationsValidator />
+
+
+    @foreach (var seccion in @formModel.Secciones)
+    {
+
+        <Div Class="border-3 px-5 gap-x-8 gap-y-4 pb-4 my-4 grid h-fit w-full grid-cols-2 rounded-md border-solid">
+            <h3 class="ml-1/12 -mt-3 px-4 bg-white col-span-3 h-auto w-fit font-bold">@seccion.Titulo</h3>
+
+            @foreach (var campo in seccion.Campos)
+            {
+                <div class="p-2 flex flex-col">
+                    <label for="apellido" class="text-gray-700 font-lg pb-2 block">@campo.Label:</label>
+                    <input id="apellido" type="text" @bind="campo.Valor" class="border-zinc-300 flex h-1/2 rounded-lg border-2" />
+                </div>
+            }
+        </Div>
+    }
+
+    <button type="submit" class="mt-2 px-4 py-2 bg-[#95D904] text-white rounded-md font-semibold shadow hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">Enviar</button>
+</EditForm>
+
+
+   
+
+
+@code {
+    private FormModel formModel = new FormModel();
+
+
+
+
+    protected override void OnInitialized()
+    {
+        Seccion ejemplo = new Seccion("Datos Usuario");
+        ejemplo.addCampo("Nombre", "Nombre", "");
+        ejemplo.addCampo("Apellido", "Apellido", "");
+
+        Seccion ejemplo2 = new Seccion("Seccion 2");
+        ejemplo2.addCampo("Nombre", "Nombre", "");
+        ejemplo2.addCampo("Apellido", "Apellido", "");
+        formModel.addSeccion(ejemplo);
+        formModel.addSeccion(ejemplo2);
+
+
+    }
+
+
+    
+
+   
+
+
+    private void HandleValidSubmit()
+    {
+        Console.WriteLine($"Formulario enviado: {formModel.Nombre} {formModel.Apellido} {formModel.Rut} {formModel.Telefono}");
+    }
+
+
+    public class Campo
+    {
+        public string Nombre { get; set; }
+        public string Label { get; set; }
+        public string Valor { get; set; }
+    }
+
+    public class Seccion
+    {
+        public string Titulo { get; set; }
+        public List<Campo> Campos { get; set; } = new List<Campo>();
+
+        public void addCampo(string nombre, string label, string valor)
+        {
+            Campos.Add(new Campo { Nombre = nombre, Label = label, Valor = valor });
+        }
+
+        public Seccion(string titulo)
+        {
+            this.Titulo = titulo;
+        }
+    }
+
+
+    public class FormModel
+    {
+        public List<Seccion> Secciones { get; set; } = new List<Seccion>();
+
+        public void addSeccion(Seccion seccion)
+        {
+            Secciones.Add(seccion);
+        }
+
+
+
+
+        public string Nombre { get; set; }
+
+        
+        public string Apellido { get; set; }
+
+       
+        public string Rut { get; set; }
+
+        
+        public string Telefono { get; set; }
+    }
+
+}
