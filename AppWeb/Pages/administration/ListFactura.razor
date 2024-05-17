@@ -1,0 +1,268 @@
+﻿@page "/admin/listaFacturas"
+
+<PageTitle>Lista usuarios</PageTitle>
+<h1 class="mt-3 mb-6 text-center text-lg font-bold">Lista de Facturas</h1>
+
+<Div class="gap-4 pb-2 flex w-full items-center">
+    <Span Class="pr-2 h-fit text-center font-bold">Acciones:</Span>
+    <button class="p-2 rounded-lg hover:bg-[#89A976] hover:text-white">
+        <Icon Class="text-black" Name="IconName.PlusCircle" />
+        <Span Class="ml-1">Agregar</Span>
+    </button>
+
+    <button class="p-2 rounded-lg hover:bg-[#89A976] hover:text-white">
+        <Icon Name="IconName.Pen" />
+        <Span Class="ml-1">Modificar</Span>
+    </button>
+
+    <button class="p-2 rounded-lg hover:bg-[#89A976] hover:text-white">
+        <Icon Name="IconName.Delete" />
+        <Span Class="ml-1">Eliminar</Span>
+    </button>
+
+    <div class="gap-2 ml-auto flex flex-row items-center">
+        <label>Ordenar: </label>
+        <select class="py-2 pl-2 pe-10 border-gray-200 block w-fit appearance-none rounded-lg text-sm hover:appearance-none focus:border-[#89A976] focus:ring-[#89A976]">
+            <option class="appearance-none checked:bg-[#89A976] hover:bg-[#89A976] hover:appearance-none focus:bg-[#89A976] active:bg-[#89A976]" selected>Recomendada</option>
+            <option class="checked:bg-[#89A976]">1</option>
+            <option class="checked:bg-[#89A976]">2</option>
+            <option class="checked:bg-[#89A976]">3</option>
+        </select>
+    </div>
+</Div>
+
+<table class="border-zinc-300 border-3 w-full rounded-lg">
+    <thead class="bg-[#D4E7C5] w-full">
+        <tr class="px-4">
+            <th class="px-2 py-1 w-[10px]"><input type="checkbox" class="border-zinc-300 border-3 checked:ring-0 checked:bg-[#89A976] checked:border-zinc-600 focus:ring-0" disabled /></th>
+            <th class="w-fit">
+                <Div Class="bg-[#99BC85] px-3 py-1/2 mx-auto w-fit rounded-full">
+                    Nombre
+                </Div>
+            </th>
+            <th class="w-fit">
+                <Div Class="bg-[#99BC85] px-3 py-1/2 mx-auto w-fit rounded-full">
+                    Patente
+                </Div>
+            </th>
+            <th class="w-fit">
+                <Div Class="bg-[#99BC85] px-3 py-1/2 mx-auto w-fit rounded-full">
+                    Fecha Carga
+                </Div>
+            </th>
+            <th class="w-fit">
+                <Div Class="bg-[#99BC85] px-3 py-1/2 mx-auto w-fit rounded-full">
+                    Fecha
+                </Div>
+            </th>
+            <th class="w-fit">
+                <Div Class="bg-[#99BC85] px-3 py-1/2 mx-auto w-fit rounded-full">
+                    Kg original
+                </Div>
+            </th>
+            <th class="w-fit">
+                <Div Class="bg-[#99BC85] px-3 py-1/2 mx-auto w-fit rounded-full">
+                    Cliente
+                </Div>
+            </th>
+            <th class="w-fit">
+                <Div Class="bg-[#99BC85] px-3 py-1/2 mx-auto w-fit rounded-full">
+                    Origen
+                </Div>
+            </th>
+            <th class="w-fit">
+            </th>
+        </tr>
+    </thead>
+
+    <tbody class="w-full">
+
+       
+
+        @if (isLoading)
+        {
+            <tr>
+                <td colspan="8" class="text-center">Cargando...</td>
+            </tr>
+        }
+        else if (listaFacturas == null || !listaFacturas.Any())
+        {
+            <tr>
+                <td class="px-2 py-1 w-[10px]">
+                    <input type="checkbox" class="border-zinc-300 border-3 checked:ring-0 checked:bg-[#89A976] checked:border-zinc-600 hover:border-zinc-600 focus:ring-0 focus:border-zinc-600" />
+                </td>
+                <td class="border-slate-700 border text-center">Empresa S.A.</td>
+                <td class="border-slate-700 border text-center">AB1234</td>
+                <td class="border-slate-700 border text-center">15/05/2024</td>
+                <td class="border-slate-700 border text-center">20/05/2024</td>
+                <td class="border-slate-700 border text-center">1000</td>
+                <td class="border-slate-700 border text-center">Cliente Uno</td>
+                <td class="border-slate-700 border text-center">Santiago</td>
+            </tr>
+            <tr>
+                <td class="px-2 py-1 w-[10px]">
+                    <input type="checkbox" class="border-zinc-300 border-3 checked:ring-0 checked:bg-[#89A976] checked:border-zinc-600 hover:border-zinc-600 focus:ring-0 focus:border-zinc-600" />
+                </td>
+                <td class="border-slate-700 border text-center">Transportes Chile</td>
+                <td class="border-slate-700 border text-center">CD5678</td>
+                <td class="border-slate-700 border text-center">12/05/2024</td>
+                <td class="border-slate-700 border text-center">17/05/2024</td>
+                <td class="border-slate-700 border text-center">2000</td>
+                <td class="border-slate-700 border text-center">Cliente Dos</td>
+                <td class="border-slate-700 border text-center">Valparaíso</td>
+            </tr>
+            <tr>
+                <td class="px-2 py-1 w-[10px]">
+                    <input type="checkbox" class="border-zinc-300 border-3 checked:ring-0 checked:bg-[#89A976] checked:border-zinc-600 hover:border-zinc-600 focus:ring-0 focus:border-zinc-600" />
+                </td>
+                <td class="border-slate-700 border text-center">Logística Sur</td>
+                <td class="border-slate-700 border text-center">EF9012</td>
+                <td class="border-slate-700 border text-center">10/05/2024</td>
+                <td class="border-slate-700 border text-center">15/05/2024</td>
+                <td class="border-slate-700 border text-center">1500</td>
+                <td class="border-slate-700 border text-center">Cliente Tres</td>
+                <td class="border-slate-700 border text-center">Concepción</td>
+            </tr>
+            <tr>
+                <td class="px-2 py-1 w-[10px]">
+                    <input type="checkbox" class="border-zinc-300 border-3 checked:ring-0 checked:bg-[#89A976] checked:border-zinc-600 hover:border-zinc-600 focus:ring-0 focus:border-zinc-600" />
+                </td>
+                <td class="border-slate-700 border text-center">Carga y Transporte</td>
+                <td class="border-slate-700 border text-center">GH3456</td>
+                <td class="border-slate-700 border text-center">08/05/2024</td>
+                <td class="border-slate-700 border text-center">13/05/2024</td>
+                <td class="border-slate-700 border text-center">1800</td>
+                <td class="border-slate-700 border text-center">Cliente Cuatro</td>
+                <td class="border-slate-700 border text-center">La Serena</td>
+            </tr>
+            <tr>
+                <td class="px-2 py-1 w-[10px]">
+                    <input type="checkbox" class="border-zinc-300 border-3 checked:ring-0 checked:bg-[#89A976] checked:border-zinc-600 hover:border-zinc-600 focus:ring-0 focus:border-zinc-600" />
+                </td>
+                <td class="border-slate-700 border text-center">Distribuciones Norte</td>
+                <td class="border-slate-700 border text-center">IJ7890</td>
+                <td class="border-slate-700 border text-center">05/05/2024</td>
+                <td class="border-slate-700 border text-center">10/05/2024</td>
+                <td class="border-slate-700 border text-center">1200</td>
+                <td class="border-slate-700 border text-center">Cliente Cinco</td>
+                <td class="border-slate-700 border text-center">Antofagasta</td>
+            </tr>
+            <tr>
+                <td class="px-2 py-1 w-[10px]">
+                    <input type="checkbox" class="border-zinc-300 border-3 checked:ring-0 checked:bg-[#89A976] checked:border-zinc-600 hover:border-zinc-600 focus:ring-0 focus:border-zinc-600" />
+                </td>
+                <td class="border-slate-700 border text-center">Transporte Express</td>
+                <td class="border-slate-700 border text-center">KL1234</td>
+                <td class="border-slate-700 border text-center">03/05/2024</td>
+                <td class="border-slate-700 border text-center">08/05/2024</td>
+                <td class="border-slate-700 border text-center">1400</td>
+                <td class="border-slate-700 border text-center">Cliente Seis</td>
+                <td class="border-slate-700 border text-center">Temuco</td>
+            </tr>
+            <tr>
+                <td class="px-2 py-1 w-[10px]">
+                    <input type="checkbox" class="border-zinc-300 border-3 checked:ring-0 checked:bg-[#89A976] checked:border-zinc-600 hover:border-zinc-600 focus:ring-0 focus:border-zinc-600" />
+                </td>
+                <td class="border-slate-700 border text-center">Servicios Logísticos</td>
+                <td class="border-slate-700 border text-center">MN5678</td>
+                <td class="border-slate-700 border text-center">01/05/2024</td>
+                <td class="border-slate-700 border text-center">06/05/2024</td>
+                <td class="border-slate-700 border text-center">1600</td>
+                <td class="border-slate-700 border text-center">Cliente Siete</td>
+                <td class="border-slate-700 border text-center">Iquique</td>
+            </tr>
+            <tr>
+                <td class="px-2 py-1 w-[10px]">
+                    <input type="checkbox" class="border-zinc-300 border-3 checked:ring-0 checked:bg-[#89A976] checked:border-zinc-600 hover:border-zinc-600 focus:ring-0 focus:border-zinc-600" />
+                </td>
+                <td class="border-slate-700 border text-center">Distribuciones Pacífico</td>
+                <td class="border-slate-700 border text-center">OP9012</td>
+                <td class="border-slate-700 border text-center">28/04/2024</td>
+                <td class="border-slate-700 border text-center">03/05/2024</td>
+                <td class="border-slate-700 border text-center">1700</td>
+                <td class="border-slate-700 border text-center">Cliente Ocho</td>
+                <td class="border-slate-700 border text-center">Puerto Montt</td>
+            </tr>
+        }
+        else
+        {
+            @foreach (var factura in this.listaFacturas)
+            {
+                <tr>
+                    <td class="px-2 py-1 w-[10px]">
+                        <input type="checkbox" class="border-zinc-300 border-3 checked:ring-0 checked:bg-[#89A976] checked:border-zinc-600 hover:border-zinc-600 focus:ring-0 focus:border-zinc-600" />
+                    </td>
+                    <td class="border-slate-700 border text-center">@factura.Nombre</td>
+                    <td class="border-slate-700 border text-center">@factura.Patente</td>
+                    <td class="border-slate-700 border text-center">@factura.FechaCarga.ToString("dd/MM/yyyy")</td>
+                    <td class="border-slate-700 border text-center">@factura.Fecha.ToString("dd/MM/yyyy")</td>
+                    <td class="border-slate-700 border text-center">@factura.KgOriginal</td>
+                    <td class="border-slate-700 border text-center">@factura.Cliente</td>
+                    <td class="border-slate-700 border text-center">@factura.Origen</td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>
+
+@code {
+
+    public List<Factura> listaFacturas { get; set; } = new List<Factura>();
+    private bool isLoading = true;
+
+    protected override async Task OnInitializedAsync()
+    {
+        this.listaFacturas = await GetFacturasAsync();
+        isLoading = false;
+    }
+
+    public class Factura
+    {
+        public string Nombre { get; set; }
+        public string Patente { get; set; }
+        public DateTime FechaCarga { get; set; }
+        public DateTime Fecha { get; set; }
+        public decimal KgOriginal { get; set; }
+        public string Cliente { get; set; }
+        public string Origen { get; set; }
+    }
+
+    private async Task<List<Factura>> GetFacturasAsync()
+    {
+        List<Factura> lista = new List<Factura>();
+
+        Random random = new Random();
+
+        string[] nombres = { "Juan", "Maria", "Jose", "Carla", "Luis", "Ana", "Pedro", "Carmen", "Diego", "Isabel" };
+        string[] apellidos = { "Gonzalez", "Rodriguez", "Perez", "Fernandez", "Lopez", "Martinez", "Gomez", "Diaz", "Hernandez", "Alvarez" };
+        string[] patentes = { "ABC123", "DEF456", "GHI789", "JKL012", "MNO345" };
+        string[] clientes = { "Supermercado A", "Supermercado B", "Distribuidora X", "Tienda Y", "Restaurante Z" };
+        string[] origenes = { "Santiago", "Valparaíso", "Concepción", "Antofagasta", "Puerto Montt" };
+
+        int cantidad = 7;
+
+        for (int i = 0; i < cantidad; i++)
+        {
+            string nombreCompleto = nombres[random.Next(nombres.Length)] + " " + apellidos[random.Next(apellidos.Length)];
+
+            Factura factura = new Factura
+                {
+                    Nombre = nombreCompleto,
+                    Patente = patentes[random.Next(patentes.Length)],
+                    FechaCarga = DateTime.Now.AddDays(-random.Next(1, 365)),
+                    Fecha = DateTime.Now.AddDays(-random.Next(1, 30)),
+                    KgOriginal = (decimal)(random.NextDouble() * 1000),
+                    Cliente = clientes[random.Next(clientes.Length)],
+                    Origen = origenes[random.Next(origenes.Length)]
+                };
+
+            lista.Add(factura);
+        }
+
+        return lista;
+    }
+
+
+
+
+}
