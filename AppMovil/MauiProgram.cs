@@ -1,4 +1,7 @@
 ﻿using Microsoft.Extensions.Logging;
+using Blazorise;
+using Blazorise.Tailwind;
+using Blazorise.Icons.FontAwesome;
 
 namespace AppMovil
 {
@@ -15,9 +18,10 @@ namespace AppMovil
                 });
 
             builder.Services.AddMauiBlazorWebView();
+            builder.Services.AddBlazorise().AddTailwindProviders().AddFontAwesomeIcons();
 
 #if DEBUG
-    		builder.Services.AddBlazorWebViewDeveloperTools();
+            builder.Services.AddBlazorWebViewDeveloperTools();
     		builder.Logging.AddDebug();
 #endif
 

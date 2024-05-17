@@ -1,0 +1,60 @@
+@page "/Camioneroslist"
+
+<PageTitle>Camioneros-Activos</PageTitle>
+
+
+<div class="container px-4 mx-auto">
+    <h1 class="text-2xl font-bold text-center text-gray-800 mt-8">Vista de Camioneros para supervisores</h1>
+
+    <div class="flex flex-wrap gap-4 mt-8 bg-[#16B213] p-4">
+        @foreach (var camionero in Camioneros)
+        {
+            <div class="p-4 bg-white rounded-lg shadow-sm flex flex-col items-center w-full sm:w-1/2 md:w-1/4">
+                <div class="border border-black rounded-lg p-1">
+                    <img class="w-full" src="./images/camion.png"/>
+                </div>
+                <div class="mt-4 text-center">
+                    <h5 class="text-lg font-semibold text-gray-800">@camionero.Name</h5>
+                    <p class="text-sm text-gray-600">Estado: @camionero.Status</p>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+@code {
+    // ejemplo aqui que camioneros es una lista de objetos
+    public List<Camionero> Camioneros { get; set; } = new List<Camionero>();
+
+    protected override async Task OnInitializedAsync()
+    {
+        // hace Fetch de Camioneros desde la data de la db
+        Camioneros = await GetCamionerosAsync();
+    }
+
+
+    public class Camionero
+    {
+        public string Name { get; set; }
+        public string Status { get; set; }
+    }
+
+
+
+    private async Task<List<Camionero>> GetCamionerosAsync()
+    {
+        // Implement your logic to fetch Camioneros data from your data source
+        // For example, using HttpClient to make a request to an API
+
+        return new List<Camionero>
+        {
+            new Camionero { Name = "Juan illo", Status = "Activo" },
+            new Camionero { Name = "Ilo Guan", Status = "Inactivo" },
+            new Camionero { Name = "Juan Alberto", Status = "Inactivo" },
+            new Camionero { Name = "Murciano", Status = "Inactivo" },
+            // añade camioneros com ose necesite para el frontend
+        };
+    }
+
+
+}
