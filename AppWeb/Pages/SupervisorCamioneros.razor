@@ -1,15 +1,15 @@
-@page "/Camioneroslist"
+﻿@page "/Camioneroslist"
 
 <PageTitle>Camioneros-Activos</PageTitle>
 
-<div class="px-4  fondito py-4 w-full">
-    <div class="bg-[#95D904] rounded-lg w-96 mx-auto w-fit">
-        <h1 class="text-2xl font-bold text-center text-gray-800 ">Camioneros en la Empresa</h1>
+<div class="px-4 fondito w-full">
+    <div class="flex justify-center">
+        <h2 class="mb-2 p-2 px-8 text-white bg-black rounded-b-[30px] text-center text-4xl font-bold">Camioneros en la empresa</h2>
     </div>
     
 
-    <table class="table-auto w-full mt-4 bg-[#95D904] rounded-lg ">
-        <thead class="border-b border-t border-black border  text-left">
+    <table class="mt-4 bg-[#95D904] w-full table-auto rounded-lg">
+        <thead class="border-black border border-b border-t text-left">
             <tr>
                 <th class="px-4 py-2">Imagen</th>
                 <th class="px-4 py-2">Nombre</th>
@@ -20,10 +20,10 @@
                 <th>Más Informacion</th>
             </tr>
         </thead>
-        <tbody class="bg-[#f8fafc] ">
+        <tbody class="bg-[#f8fafc]">
             @foreach (var camionero in Camioneros)
             {
-                <tr class="border-zinc-500 border  h-30 ">
+                <tr class="border-zinc-500 h-30 border">
                      <td class="px-4 py-2"><div class="w-24 h-24 bg-[#95D904] rounded-full"><img src="./images/camion.png" class="p-4"/></div></td>
                     <td class="px-4 py-2">@camionero.Name</td>
                     @if(@camionero.Status == "Activo"){

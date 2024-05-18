@@ -1,0 +1,124 @@
+﻿@page "/admin/hisviajes"
+<PageTitle>Historial de viajes</PageTitle>
+
+<div class="px-6">
+    <div class="flex justify-center">
+        <h2 class="mb-2 p-2 px-8 text-white bg-black rounded-b-[30px] text-center text-4xl font-bold">Historial de viajes</h2>
+    </div>
+
+    <Div class="gap-4 pb-2 p-4 bg-[#95D904] rounded-t-[30px] border-zinc-300 border-x-3 border-t-3 flex w-full items-center">
+        <Span Class="pr-2 text-white h-fit text-center font-bold">Acciones:</Span>
+        <button class="p-2 rounded-lg hover:bg-[#89A976] hover:text-white">
+            <Icon Class="text-white" Name="IconName.PlusCircle" />
+            <Span Class="ml-1 text-white">Agregar</Span>
+        </button>
+
+        <button class="p-2 rounded-lg hover:bg-[#89A976] hover:text-white">
+            <Icon Class="text-white" Name="IconName.Pen" />
+            <Span Class="ml-1 text-white">Modificar</Span>
+        </button>
+
+        <button class="p-2 rounded-lg hover:bg-[#89A976] hover:text-white">
+            <Icon Class="text-white" Name="IconName.Delete" />
+            <Span Class="ml-1 text-white">Eliminar</Span>
+        </button>
+        <button class="p-2 rounded-lg hover:bg-[#89A976] hover:text-white">
+            <Icon Class="text-white" Name="IconName.ChartScatter" />
+            <Span Class="ml-1 text-white">Exportar Excel</Span>
+        </button>
+
+        <div class="gap-2 ml-auto flex flex-row items-center">
+            <label class="text-white">Ordenar: </label>
+            <select class="py-2 pl-2 pe-10 border-gray-200 block w-fit appearance-none rounded-lg text-sm hover:appearance-none focus:border-[#89A976] focus:ring-[#89A976]">
+                <option class="appearance-none checked:bg-[#89A976] hover:bg-[#89A976] hover:appearance-none focus:bg-[#89A976] active:bg-[#89A976]" selected>Recomendada</option>
+                <option class="checked:bg-[#89A976]">1</option>
+                <option class="checked:bg-[#89A976]">2</option>
+                <option class="checked:bg-[#89A976]">3</option>
+            </select>
+        </div>
+    </Div>
+
+    <table class="border-zinc-300 border-3 bg-white w-full rounded-lg">
+        <thead class="bg-[#D4E7C5] w-full">
+            <tr class="px-4">
+                <th class="px-2 py-1 w-[10px] w-fit">Seleccionar</th>
+                <th class="w-fit">
+                    <Div Class="bg-[#99BC85] px-3 py-1/2 mx-auto w-fit rounded-full">
+                        Nombre de conductor
+                    </Div>
+                </th>
+                <th class="w-fit">
+                    <Div Class="bg-[#99BC85] px-3 py-1/2 mx-auto w-fit rounded-full">
+                        Patente
+                    </Div>
+                </th>
+                <th class="w-fit">
+                    <Div Class="bg-[#99BC85] px-3 py-1/2 mx-auto w-fit rounded-full">
+                        Fecha Carga
+                    </Div>
+                </th>
+                <th class="w-fit">
+                    <Div Class="bg-[#99BC85] px-3 py-1/2 mx-auto w-fit rounded-full">
+                        Carga
+                    </Div>
+                </th>
+                <th class="w-fit">
+                    <Div Class="bg-[#99BC85] px-3 py-1/2 mx-auto w-fit rounded-full">
+                        Estado
+                    </Div>
+                </th>
+                <th class="w-fit">
+                    <Div Class="bg-[#99BC85] px-3 py-1/2 mx-auto w-fit rounded-full">
+                        Cliente
+                    </Div>
+                </th>
+                <th class="w-fit">
+                    <Div Class="bg-[#99BC85] px-3 py-1/2 mx-auto w-fit rounded-full">
+                        Origen
+                    </Div>
+                </th>
+                <th class="w-fit">
+                </th>
+            </tr>
+        </thead>
+
+        <tbody class="bg-white w-full">
+            <tr>
+                <td class="px-2 py-1 w-[10px]">
+                    <Div Class="flex justify-center">
+                        <input type="checkbox" class="border-zinc-300 border-3 checked:ring-0 checked:bg-[#89A976] checked:border-zinc-600 hover:border-zinc-600 focus:ring-0 focus:border-zinc-600" />
+                    </Div>
+                </td>
+                <td class="border-slate-700 border text-center">Elliot Mardones</td>
+                <td class="border-slate-700 border text-center">AB1234</td>
+                <td class="border-slate-700 border text-center">15/05/2024</td>
+                <td class="border-slate-700 border text-center">Trigo</td>
+                <Div Class="border-slate-700 py-1 flex justify-center border-t text-center">
+                    <td class="bg-[#374E36] text-white px-2 rounded-full">Finalizado</td>
+                </Div>
+                <td class="border-slate-700 border text-center">Cliente Uno</td>
+                <td class="border-slate-700 border text-center">Santiago</td>
+            </tr>
+            <tr>
+                <td class="px-2 py-1 w-[10px]">
+                    <Div Class="flex justify-center">
+                        <input type="checkbox" class="border-zinc-300 border-3 checked:ring-0 checked:bg-[#89A976] checked:border-zinc-600 hover:border-zinc-600 focus:ring-0 focus:border-zinc-600" />
+                    </Div>
+                </td>
+                <td class="border-slate-700 border text-center">Ignacio Lincolao</td>
+                <td class="border-slate-700 border text-center">CV1234</td>
+                <td class="border-slate-700 border text-center">15/05/2024</td>
+                <td class="border-slate-700 border text-center">Avena</td>
+                <Div Class="border-slate-700 py-1 flex justify-center border-t text-center">
+                    <td class="bg-[#16B213] text-white px-2 rounded-full">En Camino</td>
+                </Div>
+                <td class="border-slate-700 border text-center">Cliente Uno</td>
+                <td class="border-slate-700 border text-center">Temuco</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+@code {
+
+}
