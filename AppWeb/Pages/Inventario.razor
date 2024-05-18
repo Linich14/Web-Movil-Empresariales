@@ -1,0 +1,144 @@
+@page "/stock"
+
+<PageTitle>Inventario</PageTitle>
+
+<div class="px-4 fondito w-full ">
+   <div class="flex justify-center">
+        <h2 class="mb-2 p-2 px-8 text-white bg-black rounded-b-[30px] text-center text-4xl font-bold">Inventario</h2>
+    </div>
+    <div class="trasparente rounded-lg flex flex-wrap">
+        @foreach (var item in getInvent)
+        {
+            <div class="flex justify-center p-4 w-full sm:w-1/2 md:w-1/3">
+                <div class="bg-white shadow-md rounded-lg p-6 border border-black border-2">
+                    <div class="flex flex-col items-center space-y-4 ">
+                        <img class="w-96 h-72 rounded-lg bg-yellow-300" src="@item.Imagen" alt="@item.Nombre">
+                        <div class="text-center">
+                            <h2 class="text-2xl font-medium text-gray-900">@item.Nombre</h2>
+                            <p class="text-md text-gray-500">Sucursal: @item.Sucursal</p>
+                            <p class="text-md text-gray-500">Cantidad: @item.Cantidad Kg</p>
+                            <p class="text-md text-gray-500">Precio por Kg: $@item.PrecioKG</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+
+    <div class="bg-white mt-2 rounded-lg ">
+        <div class="flex justify-center">
+            <h2 class="mb-2 p-2 px-8 text-white bg-black rounded-b-[30px] text-center text-4xl font-bold">Ventas: </h2>
+        </div>
+        <div class="flex flex-col justify-center">
+            <div class="px-4 py-4 justify-center flex ">
+                <img style="width: 50%;" src="./images/B.jpg" alt="grafico">
+            </div>
+            <div class="px-4 py-4 rounded-lg flex justify-center ">
+                <div class="border border-black px-4 py-4 rounded-lg ">
+                    <div class="bg-[#000000] text-white text-center text-5xl rounded-lg py-4 px-4">
+                        <h2 class="">Peso Total en la Empresa: @PesoTotal kgs.</h2>
+                    </div>
+                    
+                    <div class="flex  bg-[#F2F2F2]  justify-center mt-3 rounded-lg" >
+                        <p class="text-xl">Stock en ARG: $@arg</p>
+                    </div>
+                    <div class="flex  bg-[#F2F2F2]  justify-center mt-3 rounded-lg">
+                        <p class="text-xl">Stock en CLP: $@clp</p>
+                    </div>
+                    <div class="flex  bg-[#F2F2F2]  justify-center mt-3 rounded-lg">
+                        <p class="text-xl">Stock en Dolar: $@dolar</p>
+                    </div>
+                    
+                    
+                </div>
+
+            </div>
+        </div>
+        
+    </div>
+
+</div>
+
+
+@code{
+
+    public List<itemInventario> getInvent {get;set;} = new List<itemInventario>();
+        
+    public float[] listaprecios;
+    public float dolar {get;set;} = 0.0f;
+
+    public float PesoTotal {get;set;} =0.0f;
+    public float clp {get;set;}= 0.0f;
+    public float arg {get;set;}= 0.0f;
+    protected override async Task OnInitializedAsync(){
+        getInvent =  await GetInventariosAsync();
+        PesoTotal = await GetPesoTotal(getInvent);
+        listaprecios = await GetPrecioTotal(getInvent);
+        dolar = listaprecios[0];
+        clp = listaprecios[1];
+        arg = listaprecios[2];
+    }
+    public class itemInventario{
+        public int IdStock { get; set; } 
+        public string Nombre { get; set; }
+        public string Sucursal { get; set; }
+        public float Cantidad { get; set; }
+        public float PrecioKG { get; set; }
+        public string Imagen { get; set; }
+    }
+
+    private async Task<float> GetPesoTotal(List<itemInventario> items){
+        float total = 0;
+        foreach (var item in items)
+        {
+            total += item.Cantidad;
+        }
+        return total;
+    }
+
+    private async Task<float[]> GetPrecioTotal(List<itemInventario> items)
+    {
+        float totaldolar = 0;
+        float totalclp = 0;
+        float totalarg = 0;
+
+        foreach (var item in items)
+        {
+            totaldolar += item.Cantidad * 1.1f;
+            totalclp += totaldolar * 892.06f;
+            totalarg += totaldolar * 887.31f;
+        }
+
+        return new float[] { totaldolar, totalclp, totalarg };
+    }
+
+    private async Task<List<itemInventario>> GetInventariosAsync(){
+        return new List<itemInventario>
+        {
+           new itemInventario { IdStock=1, Nombre="Maiz", Sucursal="Argentina",Cantidad=10000.00f,PrecioKG=10.5f,Imagen="./images/maiz.jpg"},
+           new itemInventario { IdStock=2, Nombre="Algodon", Sucursal="Argentina",Cantidad=10000.00f,PrecioKG=10.5f,Imagen="./images/pepa-agodongr.jpg"},
+           new itemInventario { IdStock=3, Nombre="Chia", Sucursal="Argentina",Cantidad=10000.00f,PrecioKG=10.5f,Imagen="./images/chiagr.jpg"},
+           new itemInventario { IdStock=4, Nombre="Centeno", Sucursal="Argentina",Cantidad=10000.00f,PrecioKG=10.5f,Imagen="./images/centenogr.jpg"},
+           new itemInventario { IdStock=5, Nombre="Trigo", Sucursal="Chile",Cantidad=5000.00f,PrecioKG=5.5f,Imagen="./images/trigogr.jpg"},
+           new itemInventario { IdStock=6, Nombre="Quinoa", Sucursal="Chile",Cantidad=5000.00f,PrecioKG=5.5f,Imagen="./images/quinoagr.jpg"},
+           new itemInventario { IdStock=7, Nombre="Girasol", Sucursal="Chile",Cantidad=5000.00f,PrecioKG=5.5f,Imagen="./images/girasolgr.jpg"},
+           new itemInventario { IdStock=8, Nombre="Algodon", Sucursal="Chile",Cantidad=5000.00f,PrecioKG=5.5f,Imagen="./images/camion.png"}
+        };
+    }
+
+}
+
+<style>
+    .fondito {
+        background-image: url("./images/fondo1.png");
+        background-size: cover;
+        background-repeat: no-repeat;
+        height: 200vh;
+        
+    }
+    .trasparente{
+        background-color: rgba(150, 217, 4, 0.836); 
+    }
+
+
+</style>

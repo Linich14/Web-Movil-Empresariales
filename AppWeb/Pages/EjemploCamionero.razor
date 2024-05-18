@@ -1,0 +1,130 @@
+@page "/ejemplocamionero"
+
+<PageTitle>Camionero 1</PageTitle>
+<div class="fondito w-full px-4">
+    <div class="flex justify-center">
+        @if(camion!=null){
+            <h2 class="mb-2 p-2 px-8 text-white bg-black rounded-b-[30px] text-center text-4xl font-bold">Estado de @camion.Name</h2>
+        }else{
+            <h2 class="mb-2 p-2 px-8 text-white bg-black rounded-b-[30px] text-center text-4xl font-bold">No existe el Camionero</h2>
+        }
+    </div>
+
+    <div class="grid gap-2 grid-cols-2 grid-rows-2  trasparente rounded-lg " >
+            
+
+        @if (camion!= null)
+        {
+            
+            <div class="flex justify-center px-4 py-4  items-center">
+                <div class="  rounded-full h-96 w-96 overflow-hidden border border-white border-5">
+                    <img src="@camion.Imagen" class="w-96 h-96 object-cover " />
+                </div>
+            </div>
+            <div class="px-4 py-4">
+                <div class=" rounded-lg h-96 border border-white border-4">
+                    <img src="./images/camionfondo.jpg" class="h-full w-full object-cover object-center b" />
+                </div>
+            </div>
+            
+            <div class=" px-4 py-4 flex justify-center  ">
+                <div class="border border-black px-4 py-4 rounded-lg w-full">
+                    <div class="bg-[#000000] text-white text-center text-5xl rounded-lg py-4">
+                        <h2 class="">Sr. @camion.Name</h2>
+                    </div>
+                    
+                        @if(@camion.Status == "Activo"){
+                            <div class="flex  bg-sky-500  justify-center rounded-lg py-3 mt-3">
+                            <p class="text-2xl text-white"> <b>Estado</b>: @camion.Status</p>
+                            </div>
+                        }else{
+
+                            <div class="text-2xl bg-[#dc2626] py-3">
+                            <p>Status: @camion.Status</p>
+                            </div>
+                        }
+                    
+                    <div class="flex  bg-[#F2F2F2]  justify-center mt-3 rounded-lg" >
+                        <p class="text-xl">Patente: @camion.PlateNumber</p>
+                    </div>
+                    <div class="flex  bg-[#F2F2F2]  justify-center mt-3 rounded-lg">
+                        <p class="text-xl">Carga: @camion.LoadType</p>
+                    </div>
+                    <div class="flex  bg-[#F2F2F2]  justify-center mt-3 rounded-lg">
+                        <p class="text-xl">Tonelaje Max: @camion.Tonnage</p>
+                    </div>
+                    
+                    
+                </div>
+
+            </div>
+            <div class=" px-4 py-4 flex justify-left ">
+                <div class="">
+                    <div class="px-4 py-4">
+                        <button class="px-4 py-2 bg-yellow-200 text-black rounded-lg w-48"  name="actualizar">Actualizar</button>
+                    </div>
+                    <div class="px-4 py-4">
+                        <button class="px-4 py-2 bg-yellow-200 text-black rounded-lg w-48">Terminar Viaje</button>
+                    </div>
+                    <div class="px-4 py-4">
+                        <button class="px-4 py-2 bg-yellow-200 text-black rounded-lg w-48">Editar Viaje</button>
+                    </div>
+                    <div class="px-4 py-4">
+                        <select class="px-4 py-2 rounded-lg w-96" >
+                            <option value="opcion1">Viaje Actual </option>
+                            <option value="opcion2">Viaje anterior 1 id:123123</option>
+                            <option value="opcion3">Viaje anterior 2 id:321321</option>
+                        </select>
+                    </div>
+                </div>
+                
+                
+            </div>
+            
+        }
+        else
+        {
+            <div class="flex justify-center py-2">
+                <p class="text-5xl py-2">Camionero no Encontrado</p>
+            </div>
+            
+        }
+
+    </div>
+</div>
+
+@code{
+
+    public class Camionero
+    {
+        public int Id { get; set; } 
+        public string Name { get; set; }
+        public string Status { get; set; }
+        public string PlateNumber { get; set; }
+        public string LoadType { get; set; }
+        public string Tonnage { get; set; }
+        public string Imagen { get; set; }
+    }
+
+
+    Camionero camion = new Camionero { Id = 1, Name = "Juan illo", Status = "Activo", PlateNumber = "ABC123", LoadType = "General", Tonnage = "10t" , Imagen = "./images/camionero.png"};
+    //Camionero camion = null;
+
+}
+
+<style>
+    .fondito {
+        background-image: url("./images/fondo1.png");
+        background-size: cover;
+        background-repeat: no-repeat;
+        height: 100vh;
+        
+    }
+
+    .trasparente{
+        background-color: rgba(150, 217, 4, 0.836); 
+    }
+
+
+
+</style>
