@@ -1,27 +1,19 @@
-﻿<div class="top-row ps-3 navbar navbar-dark">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="">AppMovil</a>
-    </div>
-</div>
+﻿<div class="navbar bottom-0 bg-gray-800 text-white p-4 fixed flex w-full justify-around" onclick="document.querySelector('.navbar-toggler').click()">
+    <nav class="gap-3 bg-gray-800 text-white p-4 bottom-0 fixed flex w-full flex-row justify-between">
+        <NavLink class="flex flex-1 flex-col items-center" href="counter">
+            <Icon Name="IconName.CheckCircle" Class="w-6 h-6" />
+            <span class="mt-1">Finalizar</span>
+        </NavLink>
 
-<input type="checkbox" title="Navigation menu" class="navbar-toggler" />
+        <NavLink class="flex flex-1 flex-col items-center" href="" Match="NavLinkMatch.All">
+            <Icon Name="IconName.Home" Class="w-6 h-6" />
+            <span class="mt-1">Home</span>
+        </NavLink>
 
-<div class="nav-scrollable" onclick="document.querySelector('.navbar-toggler').click()">
-    <nav class="flex-column">
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
-                <span class="bi bi-house-door-fill-nav-menu" aria-hidden="true"></span> Home
-            </NavLink>
-        </div>
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="counter">
-                <span class="bi bi-plus-square-fill-nav-menu" aria-hidden="true"></span> Counter
-            </NavLink>
-        </div>
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="weather">
-                <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Weather
-            </NavLink>
-        </div>
+        <NavLink class="flex flex-1 flex-col items-center" href="weather">
+            <Icon Name="IconName.History" Class="w-6 h-6" />
+            <span class="mt-1">Historial</span>
+        </NavLink>
     </nav>
+
 </div>
