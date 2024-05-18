@@ -1,0 +1,32 @@
+﻿@inherits LayoutComponentBase
+
+<PageTitle>Login</PageTitle>
+
+<div class="login-container">
+    <main>
+        @Body
+    </main>
+</div>
+
+<style>
+    .login-container {
+        position: relative;
+        height: 100vh;
+        overflow: hidden; /* Para asegurarte de que el pseudo-elemento no sobresalga */
+    }
+
+        .login-container::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('/images/fondo2.png');
+            background-size: cover;
+            background-position: center;
+            filter: blur(2px); /* Ajusta el valor del blur según tus necesidades */
+            z-index: -1; /* Asegura que el pseudo-elemento esté detrás del contenido principal */
+        }
+
+</style>

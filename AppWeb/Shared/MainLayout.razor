@@ -7,16 +7,22 @@
     <main>
         <nav class="py-2 bg-[#95D904] flex justify-between font-bold">
             <div class="bg-[#f8fafc] p-2 mx-8 rounded-bl-[35px] rounded-tr-[35px]">
-                <img src="./images/logo2.png" alt="logo">
+                <a href="/"><img src="./images/logo2.png" alt="logo"></a>
             </div>
             <div class="mx-8 gap content-center">
-                <ul class="space-x-4 text-white flex hover:text-black">
-                    <li><a href="/">Inicio</a></li>
-                    <li><a href="Camioneroslist">Camioneros</a></li>
-                    <li><a href="Rutaslist">Rutas</a></li>
-                    <li><a href="Supervisoreslist">Supervisores</a></li>
-                    <li><a href="Reporteslist">Reportes</a></li>
-                </ul>
+                <div class="flex">
+                    <div class="space-x-4 text-white flex">
+                        <a class="border-white p-1 px-4 border-b-2 transition duration-300 ease-in-out hover:scale-110 delay-150hover:-translate-y-1" href="/">Inicio</a>
+                        <a class="border-white p-1 px-4 border-b-2 transition duration-300 ease-in-out hover:scale-110 delay-150hover:-translate-y-1" href="Camionerosbuttonst">Camioneros</a>
+                        <a class="border-white p-1 px-4 border-b-2 transition duration-300 ease-in-out hover:scale-110 delay-150hover:-translate-y-1" href="Rutasbuttonst">Rutas</a>
+                        <a class="border-white p-1 px-4 border-b-2 transition duration-300 ease-in-out hover:scale-110 delay-150hover:-translate-y-1" href="Supervisoresbuttonst">Supervisores</a>
+                        <a class="border-white p-1 px-4 border-b-2 transition duration-300 ease-in-out hover:scale-110 delay-150hover:-translate-y-1" href="Reporteslist">Reportes</a>
+                    </div>
+                    <form class="mx-6" action="/search" method="get">
+                        <input class="p-2 border-white rounded-full transition duration-300 ease-in-out hover:scale-110 delay-150hover:-translate-y-1" type="text" name="query" placeholder="Search...">
+                        <button class="px-2 text-white transition transition duration-150 duration-300 ease-in-out ease-in-out hover:text-white hover:scale-110 delay-150hover:-translate-y-1" type="submit">Buscar</button>
+                    </form>
+                </div>
             </div>
         </nav>
         
