@@ -1,15 +1,16 @@
-﻿@page "/Camioneroslist"
+@using Microsoft.AspNetCore.Components.Routing
+@page "/Camioneroslist"
 
 <PageTitle>Camioneros-Activos</PageTitle>
 
-<div class="px-4 fondito w-full">
-    <div class="flex justify-center">
-        <h2 class="mb-2 p-2 px-8 text-white bg-black rounded-b-[30px] text-center text-4xl font-bold">Camioneros en la empresa</h2>
+<div class="px-4  fondito w-full">
+   <div class="flex justify-center">
+        <h2 class="mb-2 p-2 px-8 text-white bg-black rounded-b-[30px] text-center text-4xl font-bold">Camioneros en la Empresa</h2>
     </div>
     
 
-    <table class="mt-4 bg-[#95D904] w-full table-auto rounded-lg">
-        <thead class="border-black border border-b border-t text-left">
+    <table class="table-auto w-full mt-4 bg-[#95D904] rounded-lg ">
+        <thead class="border-b border-t border-black border  text-left">
             <tr>
                 <th class="px-4 py-2">Imagen</th>
                 <th class="px-4 py-2">Nombre</th>
@@ -17,13 +18,13 @@
                 <th class="px-4 py-2">Número de placa</th>
                 <th class="px-4 py-2">Tipo de carga</th>
                 <th class="px-4 py-2">Tonelaje</th>
-                <th>Más Informacion</th>
+                <th class="px-4 py-2 text-right">Más Informacion</th>
             </tr>
         </thead>
-        <tbody class="bg-[#f8fafc]">
+        <tbody class="bg-[#f8fafc] ">
             @foreach (var camionero in Camioneros)
             {
-                <tr class="border-zinc-500 h-30 border">
+                <tr class="border-zinc-500 border text-xl  h-30 ">
                      <td class="px-4 py-2"><div class="w-24 h-24 bg-[#95D904] rounded-full"><img src="./images/camion.png" class="p-4"/></div></td>
                     <td class="px-4 py-2">@camionero.Name</td>
                     @if(@camionero.Status == "Activo"){
@@ -34,8 +35,10 @@
                     <td class="px-4 py-2">@camionero.PlateNumber</td>
                     <td class="px-4 py-2">@camionero.LoadType</td>
                     <td class="px-4 py-2">@camionero.Tonnage</td>
-                    <td class="px-4 py-2">
-                        <button class="px-4 py-2 bg-[#95D904] text-black rounded-lg">Seleccionar</button>
+                    <td class="px-4 py-2 text-right ">
+                        
+
+                        <button class="px-4 py-2 bg-[#95D904] text-black rounded-lg " ><a href="/ejemplocamionero">Seleccionar</a></button>
                     </td>
                 </tr>
             }
@@ -45,7 +48,7 @@
 
 @code {
     public List<Camionero> Camioneros { get; set; } = new List<Camionero>();
-
+    protected NavigationManager NavigationManager { get; set; }
     protected override async Task OnInitializedAsync()
     {
         Camioneros = await GetCamionerosAsync();
@@ -73,19 +76,16 @@
             new Camionero { Id = 2, Name = "Ilo Guan", Status = "Inactivo", PlateNumber = "DEF456", LoadType = "Perecederos", Tonnage = "8t" },
             new Camionero { Id = 3, Name = "Juan Alberto", Status = "Inactivo", PlateNumber = "GHI789", LoadType = "Refrigerado", Tonnage = "12t" },
             new Camionero { Id = 4, Name = "Murciano", Status = "Inactivo", PlateNumber = "JKL012", LoadType = "Algodon", Tonnage = "15t" },
-            new Camionero { Id = 4, Name = "Bandurri", Status = "Activo", PlateNumber = "WWLL012", LoadType = "Trigo", Tonnage = "15t" },
-            new Camionero { Id = 4, Name = "Peñi", Status = "Activo", PlateNumber = "DFPB30", LoadType = "Trigo", Tonnage = "15t" },
-            new Camionero { Id = 4, Name = "George", Status = "Activo", PlateNumber = "CDVH67", LoadType = "Semillas", Tonnage = "15t" },
+            new Camionero { Id = 5, Name = "Bandurri", Status = "Activo", PlateNumber = "WWLL012", LoadType = "Trigo", Tonnage = "15t" },
+            new Camionero { Id = 6, Name = "Peñi", Status = "Activo", PlateNumber = "DFPB30", LoadType = "Trigo", Tonnage = "15t" },
+            new Camionero { Id = 7, Name = "George", Status = "Activo", PlateNumber = "CDVH67", LoadType = "Semillas", Tonnage = "15t" },
             
         };
     }
 
-    private void NavigateToCamioneroPage(int camioneroId)
-    {
-        // Implement navigation logic to navigate to the corresponding camionero's page
-        // For example, using NavigationManager to redirect to a new page with the camionero's Id
-        //NavigationManager.NavigateTo($"/CamioneroDetails/{camioneroId}");
-    }
+    
+    
+
 }
 
 <style>
