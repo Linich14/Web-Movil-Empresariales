@@ -1,14 +1,15 @@
 ﻿<!-- Path: Components/Pages/HistorialActividades.razor -->
 @page "/historialActividades"
 
-<main class="bg-gray-100 relative flex h-screen flex-col">
-    <!-- Fondo -->
-
+<main class="relative flex h-screen flex-col bg-fixed" style="background-image: url('./images/fondo3.png')">
+    <!-- Titulo de la navegación -->
     <div class="bg-green-600 text-white p-4 z-10 flex items-center">
         <h1 class="text-lg font-semibold">Registro de Actividades</h1>
+        <span></span>
     </div>
 
-    <div class="p-4 space-y-4 flex-1 overflow-y-auto">
+    <!-- Mensajes o registros -->
+    <div class="p-2 space-y-4 flex-1 overflow-y-auto">
         <div class="flex justify-start">
             <div class="bg-white p-3 max-w-xs rounded-lg shadow-md">
                 <span class="text-gray-700 block">Paso a cargar el camion con gasolina compro una colación en el Punto Copec</span>
@@ -16,14 +17,14 @@
             </div>
         </div>
         <div class="flex justify-start">
-            <div class="bg-white p-3 max-w-xs rounded-lg shadow-md">
+            <div class="bg-white p-2 max-w-xs rounded-lg shadow-md">
                 <span class="text-gray-700 block">Tomando un descando de 20 minutos</span>
                 <span class="text-gray-500 block text-xs">Factura - 15:12 PM</span>
             </div>
         </div>
     </div>
 
-    <!-- La wea pa escribir -->
+    <!-- Input para escribir los mensajes -->
     <div class="bg-white p-4 z-10 flex items-center">
         <input type="text" class="p-2 mr-2 flex-1 rounded-lg border" placeholder="Escribe tu registro aquí">
         <button class="bg-green-500 text-white p-2 rounded-lg">Enviar</button>
