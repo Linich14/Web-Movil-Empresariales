@@ -1,55 +1,56 @@
 ﻿@page "/perfil"
 
-<main>
-    <div class="mb-8 relative">
-        <div class="relative">
-            <img src="./images/fondo3.png" class="h-48 w-full object-cover" alt="Paisaje">
-            <div class="inset-0 bg-black absolute flex flex-col items-center justify-center bg-opacity-50">
-                <img src="./images/foto-prueba.png" class="w-24 h-24 border-white rounded-full border-4 shadow-lg" alt="Foto del Caminero">
-                <h2 class="mt-4 text-white text-2xl font-semibold">Daniel Peña</h2>
-            </div>
+<main >
+    <div class="flex flex-col">
+    <div class="w-full">
+        <div class="mb-3 flex flex-col items-center justify-center bg-opacity-50">
+            <img src="./images/foto-prueba.png" class="w-24 h-24 border-white rounded-full border-4 shadow-lg" alt="Foto del Caminero">
+            <h2 class="mt-4 text-white text-2xl font-semibold">Daniel Peña</h2>
         </div>
     </div>
-    <div class="mb-3 relative">
-        <h6 class="mb-0">
-            <button class="p-4 border-slate-100 text-slate-700 rounded-t-1 text-dark-500 group relative flex w-full cursor-pointer items-center border-b border-solid text-left font-semibold transition-all ease-in"
-                    @onclick="() => ToggleSection(1)">
-                <span>Información personal</span>
-                <i class="right-0 pt-1 fa fa-chevron-down absolute text-base transition-transform @(IsSectionVisible(1) ? "rotate-180" : "")"></i>
-            </button>
-        </h6>
-        <div class="overflow-hidden transition-all duration-300 ease-in-out" style="@(IsSectionVisible(1) ? "height: auto;" : "height: 0;")">
-            <div class="p-4 text-blue-gray-500/80 text-sm leading-normal">
-                Mostrar información aquí de información personal
-            </div>
+    <div class="bg-white roundend-lg">
+    <div class="relative">
+    <h6 class="mb-0 mr-8">
+        <button class="p-4 border-slate-100 text-slate-700 rounded-t-1 text-dark-500 group relative flex w-full cursor-pointer items-center border-b border-solid text-left font-semibold transition-all ease-in"
+                @onclick="() => ToggleSection(1)">
+            <span>Información personal</span>
+                        <i class="right-0 pt-1 fa fa-chevron-down absolute text-base transition-transform @(IsSectionVisible(1) ? "rotate-180" : "")"></i>
+        </button>
+    </h6>
+    <div class="overflow-hidden transition-all duration-300 ease-in-out" style="@(IsSectionVisible(1) ? "height: auto;" : "height: 0;")">
+        <div class="p-4 text-blue-gray-500/80 text-sm leading-normal">
+            Mostrar información aquí de información personal
         </div>
     </div>
-    <div class="mb-3 relative">
-        <h6 class="mb-0">
-            <button class="p-4 border-slate-100 text-slate-700 rounded-t-1 text-dark-500 group relative flex w-full cursor-pointer items-center border-b border-solid text-left font-semibold transition-all ease-in"
-                    @onclick="() => ToggleSection(2)">
-                <span>Historial de viajes</span>
-                <i class="right-0 pt-1 fa fa-chevron-down absolute text-base transition-transform @(IsSectionVisible(2) ? "rotate-180" : "")"></i>
-            </button>
-        </h6>
-        <div class="overflow-hidden transition-all duration-300 ease-in-out" style="@(IsSectionVisible(2) ? "height: auto;" : "height: 0;")">
-            <div class="p-4 text-blue-gray-500/80 text-sm leading-normal">
-                Mostrar información aquí de historial de viajes
-            </div>
+</div>
+<div class="relative">
+    <h6 class="mb-0 mr-8"> <!-- Añadir margen derecho -->
+        <button class="p-4 pr-8 border-slate-100 text-slate-700 rounded-t-1 text-dark-500 group relative flex w-full cursor-pointer items-center border-b border-solid text-left font-semibold transition-all ease-in"
+                @onclick="() => ToggleSection(2)">
+            <span>Historial de viajes</span>
+            <i class="right-0 pt-1 fa fa-chevron-down absolute text-base transition-transform @(IsSectionVisible(2) ? "rotate-180" : "")"></i>
+        </button>
+    </h6>
+    <div class="overflow-hidden transition-all duration-300 ease-in-out" style="@(IsSectionVisible(2) ? "height: auto;" : "height: 0;")">
+        <div class="p-4 text-blue-gray-500/80 text-sm leading-normal">
+            Mostrar información aquí de historial de viajes
         </div>
     </div>
-    <div class="mb-3 relative">
-        <h6 class="mb-0">
-            <button class="p-4 border-slate-100 text-slate-700 rounded-t-1 text-dark-500 group relative flex w-full cursor-pointer items-center border-b border-solid text-left font-semibold transition-all ease-in"
-                    @onclick="() => ToggleSection(3)">
-                <span>Información general</span>
-                <i class="right-0 pt-1 fa fa-chevron-down absolute text-base transition-transform @(IsSectionVisible(3) ? "rotate-180" : "")"></i>
-            </button>
-        </h6>
-        <div class="overflow-hidden transition-all duration-300 ease-in-out" style="@(IsSectionVisible(3) ? "height: auto;" : "height: 0;")">
-            <div class="p-4 text-blue-gray-500/80 text-sm leading-normal">
-                Aquí otra información
-            </div>
+</div>
+<div class="relative">
+    <h6 class="mb-0 mr-8"> <!-- Añadir margen derecho -->
+        <button class="p-4 pr-8 border-slate-100 text-slate-700 rounded-t-1 text-dark-500 group relative flex w-full cursor-pointer items-center border-b border-solid text-left font-semibold transition-all ease-in"
+                @onclick="() => ToggleSection(3)">
+            <span>Información general</span>
+            <i class="right-0 pt-1 fa fa-chevron-down absolute text-base transition-transform @(IsSectionVisible(3) ? "rotate-180" : "")"></i>
+        </button>
+    </h6>
+    <div class="overflow-hidden transition-all duration-300 ease-in-out" style="@(IsSectionVisible(3) ? "height: auto;" : "height: 0;")">
+        <div class="p-4 text-blue-gray-500/80 text-sm leading-normal">
+            Aquí otra información
+        </div>
+    </div>
+</div>
         </div>
     </div>
 </main>
