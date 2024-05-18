@@ -1,5 +1,5 @@
 # Aplicación de Logística para Mas-agro: Gestión Eficiente de Importación y Exportación de Productos Agrónomos
-
+![Index-Home](linkmagico)
 ## Descripción Breve
 Una aplicación diseñada para mejorar la gestión de datos y la eficiencia operativa en la empresa Mas-agro, especializada en la exportación e importación de cereales y oleaginosas de alto estándar desde Chile a Argentina y viceversa.
 
