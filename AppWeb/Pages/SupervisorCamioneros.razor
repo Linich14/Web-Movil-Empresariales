@@ -2,44 +2,65 @@
 
 <PageTitle>Camioneros-Activos</PageTitle>
 
-
-<div class="container px-4 mx-auto">
-    <h1 class="text-2xl font-bold text-center text-gray-800 mt-8">Vista de Camioneros para supervisores</h1>
-
-    <div class="flex flex-wrap gap-4 mt-8 bg-[#16B213] p-4">
-        @foreach (var camionero in Camioneros)
-        {
-            <div class="p-4 bg-white rounded-lg shadow-sm flex flex-col items-center w-full sm:w-1/2 md:w-1/4">
-                <div class="border border-black rounded-lg p-1">
-                    <img class="w-full" src="./images/camion.png"/>
-                </div>
-                <div class="mt-4 text-center">
-                    <h5 class="text-lg font-semibold text-gray-800">@camionero.Name</h5>
-                    <p class="text-sm text-gray-600">Estado: @camionero.Status</p>
-                </div>
-            </div>
-        }
+<div class="px-4  fondito py-4 w-full">
+    <div class="bg-[#95D904] rounded-lg w-96 mx-auto w-fit">
+        <h1 class="text-2xl font-bold text-center text-gray-800 ">Camioneros en la Empresa</h1>
     </div>
+    
+
+    <table class="table-auto w-full mt-4 bg-[#95D904] rounded-lg ">
+        <thead class="border-b border-t border-black border  text-left">
+            <tr>
+                <th class="px-4 py-2">Imagen</th>
+                <th class="px-4 py-2">Nombre</th>
+                <th class="px-4 py-2">Estado</th>
+                <th class="px-4 py-2">Número de placa</th>
+                <th class="px-4 py-2">Tipo de carga</th>
+                <th class="px-4 py-2">Tonelaje</th>
+                <th>Más Informacion</th>
+            </tr>
+        </thead>
+        <tbody class="bg-[#f8fafc] ">
+            @foreach (var camionero in Camioneros)
+            {
+                <tr class="border-zinc-500 border  h-30 ">
+                     <td class="px-4 py-2"><div class="w-24 h-24 bg-[#95D904] rounded-full"><img src="./images/camion.png" class="p-4"/></div></td>
+                    <td class="px-4 py-2">@camionero.Name</td>
+                    @if(@camionero.Status == "Activo"){
+                        <td class="px-4 py-2"><div class="bg-[#95D904] rounded-lg text-center">@camionero.Status </div></td>
+                    }else{
+                        <td class="px-4 py-2"><div class="bg-[#dc2626] rounded-lg text-center">@camionero.Status </div></td>
+                    }
+                    <td class="px-4 py-2">@camionero.PlateNumber</td>
+                    <td class="px-4 py-2">@camionero.LoadType</td>
+                    <td class="px-4 py-2">@camionero.Tonnage</td>
+                    <td class="px-4 py-2">
+                        <button class="px-4 py-2 bg-[#95D904] text-black rounded-lg">Seleccionar</button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
 </div>
 
 @code {
-    // ejemplo aqui que camioneros es una lista de objetos
     public List<Camionero> Camioneros { get; set; } = new List<Camionero>();
 
     protected override async Task OnInitializedAsync()
     {
-        // hace Fetch de Camioneros desde la data de la db
         Camioneros = await GetCamionerosAsync();
     }
 
-
     public class Camionero
     {
+        public int Id { get; set; } // Add an Id property to uniquely identify each camionero
         public string Name { get; set; }
         public string Status { get; set; }
+        public string PlateNumber { get; set; }
+        public string LoadType { get; set; }
+        public string Tonnage { get; set; }
+
     }
-
-
 
     private async Task<List<Camionero>> GetCamionerosAsync()
     {
@@ -48,13 +69,33 @@
 
         return new List<Camionero>
         {
-            new Camionero { Name = "Juan illo", Status = "Activo" },
-            new Camionero { Name = "Ilo Guan", Status = "Inactivo" },
-            new Camionero { Name = "Juan Alberto", Status = "Inactivo" },
-            new Camionero { Name = "Murciano", Status = "Inactivo" },
-            // añade camioneros com ose necesite para el frontend
+            new Camionero { Id = 1, Name = "Juan illo", Status = "Activo", PlateNumber = "ABC123", LoadType = "General", Tonnage = "10t" },
+            new Camionero { Id = 2, Name = "Ilo Guan", Status = "Inactivo", PlateNumber = "DEF456", LoadType = "Perecederos", Tonnage = "8t" },
+            new Camionero { Id = 3, Name = "Juan Alberto", Status = "Inactivo", PlateNumber = "GHI789", LoadType = "Refrigerado", Tonnage = "12t" },
+            new Camionero { Id = 4, Name = "Murciano", Status = "Inactivo", PlateNumber = "JKL012", LoadType = "Algodon", Tonnage = "15t" },
+            new Camionero { Id = 4, Name = "Bandurri", Status = "Activo", PlateNumber = "WWLL012", LoadType = "Trigo", Tonnage = "15t" },
+            new Camionero { Id = 4, Name = "Peñi", Status = "Activo", PlateNumber = "DFPB30", LoadType = "Trigo", Tonnage = "15t" },
+            new Camionero { Id = 4, Name = "George", Status = "Activo", PlateNumber = "CDVH67", LoadType = "Semillas", Tonnage = "15t" },
+            
         };
     }
 
-
+    private void NavigateToCamioneroPage(int camioneroId)
+    {
+        // Implement navigation logic to navigate to the corresponding camionero's page
+        // For example, using NavigationManager to redirect to a new page with the camionero's Id
+        //NavigationManager.NavigateTo($"/CamioneroDetails/{camioneroId}");
+    }
 }
+
+<style>
+    .fondito {
+        background-image: url("./images/fondo3.png");
+        background-size: cover;
+        background-repeat: no-repeat;
+        height: 100vh;
+        
+    }
+
+
+</style>
