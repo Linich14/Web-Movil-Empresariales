@@ -4,7 +4,9 @@
 
 
 <div class="px-6">
-<h1 class="mt-3 mb-6 text-center text-lg font-bold">Añadir Usuario</h1>
+    <div class="flex justify-center">
+        <h2 class="mb-2 p-2 px-8 text-white bg-black rounded-b-[30px] text-center text-4xl font-bold">Añadir usuario</h2>
+    </div>
 
 
 
@@ -17,7 +19,7 @@
     @foreach (var seccion in @formModel.Secciones)
     {
 
-        <Div Class="border-3 px-5 gap-x-8 gap-y-4 pb-4 my-4 grid h-fit w-full grid-cols-2 rounded-md border-solid">
+        <Div Class="border-3 px-5 gap-x-8 gap-y-4 pb-4 my-4 bg-white grid h-fit w-full grid-cols-2 rounded-md border-solid">
             <h3 class="ml-1/12 -mt-3 px-4 bg-white col-span-3 h-auto w-fit font-bold">@seccion.Titulo</h3>
 
             @foreach (var campo in seccion.Campos)

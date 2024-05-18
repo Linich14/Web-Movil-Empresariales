@@ -14,9 +14,9 @@
                     <div class="space-x-4 text-white flex">
                         <a class="border-white p-1 px-4 border-b-2 transition duration-300 ease-in-out hover:scale-110 delay-150hover:-translate-y-1" href="/">Inicio</a>
                         <a class="border-white p-1 px-4 border-b-2 transition duration-300 ease-in-out hover:scale-110 delay-150hover:-translate-y-1" href="Camioneroslist">Camioneros</a>
-                        <a class="border-white p-1 px-4 border-b-2 transition duration-300 ease-in-out hover:scale-110 delay-150hover:-translate-y-1" href="Rutasbuttonst">Rutas</a>
-                        <a class="border-white p-1 px-4 border-b-2 transition duration-300 ease-in-out hover:scale-110 delay-150hover:-translate-y-1" href="Supervisoresbuttonst">Supervisores</a>
-                        <a class="border-white p-1 px-4 border-b-2 transition duration-300 ease-in-out hover:scale-110 delay-150hover:-translate-y-1" href="Reporteslist">Reportes</a>
+                        <a class="border-white p-1 px-4 border-b-2 transition duration-300 ease-in-out hover:scale-110 delay-150hover:-translate-y-1" href="/admin/hisviajes">Historial viajes</a>
+                        <a class="border-white p-1 px-4 border-b-2 transition duration-300 ease-in-out hover:scale-110 delay-150hover:-translate-y-1" href="/admin/listaUsuarios">Usuarios</a>
+                        <a class="border-white p-1 px-4 border-b-2 transition duration-300 ease-in-out hover:scale-110 delay-150hover:-translate-y-1" href="/admin/adduser">Agregar usuario</a>
                     </div>
                     <form class="mx-6" action="/search" method="get">
                         <input class="p-2 border-white rounded-full transition duration-300 ease-in-out hover:scale-110 delay-150hover:-translate-y-1" type="text" name="query" placeholder="Search...">
@@ -26,8 +26,31 @@
             </div>
         </nav>
         
-        <article class="">
+        <article class="main-container">
             @Body
         </article>
     </main>
 </div>
+
+<style>
+    .main-container {
+        position: relative;
+        height: 100vh;
+        overflow: hidden; /* Para asegurarte de que el pseudo-elemento no sobresalga */
+    }
+
+        .main-container::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('/images/fondo1.png');
+            background-size: cover;
+            background-position: center;
+            filter: blur(2px); /* Ajusta el valor del blur según tus necesidades */
+            z-index: -1; /* Asegura que el pseudo-elemento esté detrás del contenido principal */
+        }
+
+</style>
