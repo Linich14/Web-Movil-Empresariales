@@ -1,49 +1,27 @@
 ﻿<!-- Path: Components/Pages/informacionviajeActual.razor -->
 @page "/informacionviajeActual"
 
-<main class="p-2 min-h-screen">
-    <div class="gap-2 grid grid-cols-2 grid-rows-4">
-        <article class="p-2 bg-white/80 col-span-2 border-2 backdrop-blur-md">
-            <h1 class="text-xl font-bold">Información del viaje</h1>
+<main class="p-1">
+    <!-- Grid padre -->
+    <div class="gap-1 grid auto-rows-min grid-cols-2">
+        <article class="p-2 bg-white/80 border-black col-span-2 min-h-min border-2 backdrop-blur-md">
+            <h1 class="border-black border-2 text-xl font-bold">Información del viaje</h1>
 
-            <section class="flex w-full items-center justify-between">
-                <span class="">Inicio de la línea</span>
-                <span class="">Final de la línea</span>
+            <section class="border-1 border-blue-500 flex-column flex-norap flex">
+                <!-- Lado izquierdo-->
+                <span class="border-dark border-2">Inicio línea</span>
+                <span class="">Final linea</span>         
             </section>
-            <section class="flex w-full items-center justify-between">
-                <span class="">Fecha de inicio</span>
-                <span class="">Final de la salida</span>
-            </section>
-            <div>
-                <h2 class="sr-only">Steps</h2>
-
-                <div class="relative after:absolute after:inset-x-0 after:top-1/2 after:block after:h-0.5 after:-translate-y-1/2 after:rounded-lg after:bg-gray-100">
-                    <ol class="text-gray-500 relative z-10 flex justify-between text-sm font-medium">
-                        <li class="gap-2 bg-white p-2 flex items-center">
-                            <span class="size-6 bg-gray-100 text-[10px]/6 rounded-full text-center font-bold"> 1 </span>
-
-                            <span class="hidden sm:block"> Details </span>
-                        </li>
-
-                        <li class="gap-2 bg-white p-2 flex items-center">
-                            <span class="size-6 bg-blue-600 text-[10px]/6 text-white rounded-full text-center font-bold">
-                                2
-                            </span>
-
-                            <span class="hidden sm:block"> Address </span>
-                        </li>
-
-                        <li class="gap-2 bg-white p-2 flex items-center">
-                            <span class="size-6 bg-gray-100 text-[10px]/6 rounded-full text-center font-bold"> 3 </span>
-
-                            <span class="hidden sm:block"> Payment </span>
-                        </li>
-                    </ol>
-                </div>
-            </div>
+            
+            <section class="border-1 border-red-500 flex-inline flex-column">
+                <!-- lado derecho-->
+                <p class="text-right">final de la línea</p>
+                <p class="text-right">final de la salida</p>
+            </section> 
         </article>
 
-        <article class="p-2 bg-white/80 col-span-2 row-start-2 border-2 backdrop-blur-md">
+        <article class="p-2 bg-white/80 border-black col-span-2 row-start-2 min-h-min border-2 backdrop-blur-md">
+            <!-- Hijo -->
             <h1 class="text-xl font-bold">Últimos registros</h1>
             <div class="m-2 p-2 bg-gray-100 flex justify-between rounded-md">
                 <span>16:45</span>
@@ -55,21 +33,25 @@
             </div>
         </article>
 
-        <div class="bg-white/80 p-4 row-start-3 size-full border-2 backdrop-blur-md">
+        <article class="bg-white/80 p-4 border-black row-start-3 size-full border-2 backdrop-blur-md"> <!-- Hijo -->
             <h2 class="text-lg font-medium">Factura de exportación</h2>
             <span class="text-green-500 text-xs">Ver documento</span>
-        </div>
-        <div class="bg-white/80 p-4 col-start-1 row-start-4 border-2 backdrop-blur-md">
+        </article>
+        <article class="bg-white/80 p-4 border-black col-start-1 row-start-4 border-2 backdrop-blur-md"> <!-- Hijo -->
             <h2 class="text-lg font-medium">Factura MASAGRO</h2>
             <span class="text-green-500 text-xs">Ver documento</span>
-        </div>
-        <div class="bg-white/80 p-4 col-start-2 row-start-3 border-2 backdrop-blur-md">
+        </article>
+        <article class="bg-white/80 p-4 border-black col-start-2 row-start-3 border-2 backdrop-blur-md"> <!-- Hijo -->
             <h2 class="text-lg font-medium">Guía de despacho</h2>
             <span class="text-green-500 text-xs">Ver documento</span>
-        </div>
-        <div class="bg-white/80 p-4 row-start-4 border-2 backdrop-blur-md">
+        </article>
+        <article class="bg-white/80 p-4 border-black row-start-4 border-2 backdrop-blur-md"> <!-- Hijo -->
             <h2 class="text-lg font-medium">Manifiesto internacional</h2>
             <span class="text-green-500 text-xs">Ver documento</span>
-        </div>
+        </article>
     </div>
 </main>
+
+@code {
+
+}
