@@ -4,49 +4,66 @@
 <main class="p-1">
     <!-- Grid padre -->
     <div class="gap-1 grid auto-rows-min grid-cols-2">
-        <article class="p-2 bg-white/80 border-black col-span-2 min-h-min border-2 backdrop-blur-md">
-            <h1 class="border-black border-2 text-xl font-bold">Información del viaje</h1>
+        <!--hijo-->
+        <div class="p-2 bg-white/80 border-black col-span-2 min-h-min border-2 backdrop-blur-md">
+            <h1 class="text-xl font-bold">Información del viaje</h1>
 
-            <section class="border-1 border-blue-500 flex-column flex-norap flex">
-                <!-- Lado izquierdo-->
-                <span class="border-dark border-2">Inicio línea</span>
-                <span class="">Final linea</span>         
-            </section>
-            
-            <section class="border-1 border-red-500 flex-inline flex-column">
-                <!-- lado derecho-->
-                <p class="text-right">final de la línea</p>
-                <p class="text-right">final de la salida</p>
-            </section> 
-        </article>
+            <article class="flex">
+                <section class="w-1/2">
+                    <!-- Lado izquierdo-->
+                    <p class="text-xs">N Factura electronica</p>
+                    <p class="text-green-700 text-lg font-normal">28471</p>
+                    <p class="text-xs">Origen</p>
+                    <p class="text-green-700 text-lg font-normal">Calle, Ciudad X, Provincia Argentina</p>
+                    <p class="text-xs">Fecha de carga</p>
+                    <p class="text-green-700 text-lg font-normal">12/10/2012</p>
+                </section>
 
+                <section class="w-1/2 text-right">
+                    <!-- lado derecho-->
+                    <p class="text-xs">N Camión/patente</p>
+                    <p class="text-green-700 text-lg font-normal">ADB-123</p>
+                    <p class="text-xs">Destino</p>
+                    <p class="text-green-700 text-lg font-normal">1001 Arica Victoria, Araucania Haithi</p>
+                    <p class="text-xs">Carga</p>
+                    <p class="text-green-700 text-lg font-normal">Maiz</p>
+                </section>
+            </article>
+        </div>
+
+        <!--hijo-->
         <article class="p-2 bg-white/80 border-black col-span-2 row-start-2 min-h-min border-2 backdrop-blur-md">
-            <!-- Hijo -->
             <h1 class="text-xl font-bold">Últimos registros</h1>
-            <div class="m-2 p-2 bg-gray-100 flex justify-between rounded-md">
-                <span>16:45</span>
-                <span>Hago una parada al baño</span>
-            </div>
-            <div class="m-2 p-2 bg-gray-100 flex justify-between rounded-lg">
-                <span>18:02</span>
-                <span>Descanso en parada de camioneros </span>
-            </div>
+            <section class="p-1 my-1 bg-gray-100 flex flex-row rounded-md">
+                <!--Aquí se insertaria desde la base de datos los ultimos registros-->
+                <span class="mr-2 text-sm">16:45</span>
+                <span class="text-sm">baño</span>
+            </section>
+            <section class="p-1 my-1 bg-gray-100 flex flex-row rounded-md">
+                <span class="mr-2 text-sm">18:02</span>
+                <span class="text-sm">Descanso en parada de camioneros donde desncasaré y cambiare de comida, tambien quiero hacer un trato </span>
+            </section>
         </article>
 
-        <article class="bg-white/80 p-4 border-black row-start-3 size-full border-2 backdrop-blur-md"> <!-- Hijo -->
-            <h2 class="text-lg font-medium">Factura de exportación</h2>
+        <!--hijos:-->
+        <article class="bg-white/80 border-black p-2 row-start-3 border-2 text-center backdrop-blur-md">
+            <pre class="text-md h-3/4 font-sans font-medium">Factura de 
+exportación</pre>
             <span class="text-green-500 text-xs">Ver documento</span>
         </article>
-        <article class="bg-white/80 p-4 border-black col-start-1 row-start-4 border-2 backdrop-blur-md"> <!-- Hijo -->
-            <h2 class="text-lg font-medium">Factura MASAGRO</h2>
+        <article class="bg-white/80 border-black p-2 col-start-1 row-start-4 border-2 text-center backdrop-blur-md">
+            <pre class="text-md h-3/4 font-sans font-medium">Factura de 
+Masagro</pre>
             <span class="text-green-500 text-xs">Ver documento</span>
         </article>
-        <article class="bg-white/80 p-4 border-black col-start-2 row-start-3 border-2 backdrop-blur-md"> <!-- Hijo -->
-            <h2 class="text-lg font-medium">Guía de despacho</h2>
+        <article class="bg-white/80 border-black p-2 col-start-2 row-start-3 border-2 text-center backdrop-blur-md">
+            <pre class="text-md h-3/4 font-sans font-medium">Guía de 
+despacho</pre>
             <span class="text-green-500 text-xs">Ver documento</span>
         </article>
-        <article class="bg-white/80 p-4 border-black row-start-4 border-2 backdrop-blur-md"> <!-- Hijo -->
-            <h2 class="text-lg font-medium">Manifiesto internacional</h2>
+        <article class="bg-white/80 border-black p-2 row-start-4 border-2 text-center backdrop-blur-md">
+            <pre class="text-md h-3/4 font-sans font-medium">Manifiesto 
+internacional</pre>
             <span class="text-green-500 text-xs">Ver documento</span>
         </article>
     </div>
